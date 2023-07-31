@@ -7,7 +7,7 @@ build :
 run :
 	docker run -it -d --rm -v ./app-root:/app  --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
-clean :
+clean : stop
 	docker rmi $(IMAGE_NAME)
 
 stop :

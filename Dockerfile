@@ -4,7 +4,7 @@ COPY ./tools/settings.xml /root/.m2/settings.xml
 
 RUN mkdir -p /app
 
-# COPY ./app-root/app /app
+# COPY ./app-root/simulator /app
 
 WORKDIR /app
 
