@@ -5,6 +5,7 @@
 /app/simulator/src/main/java/ae/fortytwo/Aircraft/Helicopter.java
 /app/simulator/src/main/java/ae/fortytwo/Aircraft/Aircraft.java
 /app/simulator/src/main/java/ae/fortytwo/Aircraft/Baloon.java
+/app/simulator/src/main/java/ae/fortytwo/Parser/Parser.java
 /app/simulator/src/main/java/ae/fortytwo/Weather/Tower.java
 /app/simulator/src/main/java/ae/fortytwo/Weather/WeatherTower.java
 /app/simulator/src/main/java/ae/fortytwo/App.java

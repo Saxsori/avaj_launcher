@@ -1,0 +1,12 @@
+ae/fortytwo/Aircraft/Aircraft.class
+ae/fortytwo/Aircraft/Baloon.class
+ae/fortytwo/Interfaces/Flyable.class
+ae/fortytwo/Parser/Parser.class
+ae/fortytwo/Weather/WeatherTower.class
+ae/fortytwo/Aircraft/AircraftFactory.class
+ae/fortytwo/App.class
+ae/forttwo/Aircraft/jetPlane.class
+ae/fortytwo/Aircraft/Helicopter.class
+ae/fortytwo/Weather/Tower.class
+ae/fortytwo/Aircraft/Coordinates.class
+ae/fortytwo/Weather/WeatherProvider.class

@@ -3,7 +3,7 @@ package ae.fortytwo.Weather;
 import ae.fortytwo.Aircraft.Coordinates;
 
 public class WeatherProvider {
-    private String[] weather;
+    private String[] weather = { "RAIN", "FOG", "SUN", "SNOW" };
     private WeatherProvider()
     {
         

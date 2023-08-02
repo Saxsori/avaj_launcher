@@ -5,7 +5,7 @@ public class Coordinates {
     private int latitude;
     private int height;
 
-    Coordinate (int p_logitude, int p_latitude, int p_height)
+    Coordinates (int p_logitude, int p_latitude, int p_height)
     {
         this.longitude = p_logitude;
         this.latitude = p_latitude;
