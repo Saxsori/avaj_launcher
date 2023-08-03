@@ -14,17 +14,18 @@ public class Parser
 	private ArrayList<String> lines = new ArrayList<>();
 	private final char delimiter = ' ';
 	private Deque<Scenario> scenarios = new ArrayDeque<>();
+	public boolean isValid = false;
 
     public Parser ( ArrayList<String> linesStack ) {
         this.lines = linesStack;
-        System.out.println("\n here from parser constructor");
-        for (String line : this.lines)
-            System.out.println(line);
+        // System.out.println("\n here from parser constructor");
+        // for (String line : this.lines)
+        //     System.out.println(line);
 		this.start();
     }
 
 	private String parseSimulations( String line ) throws InvalidScenarioException {
-		System.out.println("\nHere where to parse the simulations");
+		// System.out.println("\nHere where to parse the simulations");
 
 		String [] parts = line.split(String.valueOf(this.delimiter));
 		if (parts.length != 1) 
@@ -40,7 +41,7 @@ public class Parser
 	}
 	
 	private void start() {
-		System.out.println("\nHere where to start the parse");
+		// System.out.println("\nHere where to start the parse");
 
 		try {
 			// todo : add scenario creation
@@ -50,7 +51,7 @@ public class Parser
 			// * parse the first line
 			String simulations = this.parseSimulations(this.lines.remove(0));
 			int number = Validator.validateSimulations(simulations);
-			System.out.println("\nThe number of simulations is: " + number);
+			// System.out.println("\nThe number of simulations is: " + number);
 			Scenario.getInstance().setSimulations(number);
 
 			// todo : push back the aircraft returns to scenario
@@ -59,11 +60,11 @@ public class Parser
 			for (String line : this.lines)
 				Scenario.getInstance().addAircraft(Validator.validateAirCraft(this.parseAirCraft(line)));
 			
-			System.out.println("\n valid aircrafts !");
-
+			System.out.println("\n Valid aircrafts !");
+			this.isValid = true;
 		}
 		catch (Exception e) {
-			System.err.println("\nValidator Throws an Exception !\n" + e.getMessage() + e.getStackTrace());
+			System.err.println("\nValidator Throws an Exception !\n" + e.getMessage());
 		}
 
 	}

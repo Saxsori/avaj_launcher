@@ -5,22 +5,27 @@ public class Coordinates {
     private int latitude;
     private int height;
 
-    Coordinates (int p_logitude, int p_latitude, int p_height)
+    public Coordinates (int p_logitude, int p_latitude, int p_height)
     {
         this.longitude = p_logitude;
         this.latitude = p_latitude;
         this.height = p_height;
     }
 
-    int getLongitude () {
+    public int getLongitude () {
         return this.longitude;
     }
 
-    int getLatitude () {
+    public int getLatitude () {
         return this.latitude;
     }
 
-    int getHeight () {
+    public int getHeight () {
         return this.height;
     }
+
+	@Override
+	public String toString() {
+		return "Coordinates [height=" + height + ", latitude=" + latitude + ", longitude=" + longitude + "]";
+	}
 }
