@@ -3,8 +3,7 @@ package ae.fortytwo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Deque;
-import java.util.ArrayDeque;
+import java.util.ArrayList;
 
 import ae.fortytwo.Parser.Parser;
 
@@ -27,16 +26,16 @@ public class App
 		try {
 
 			Scanner reader = new Scanner(file);
-			Deque<String> linesStack = new ArrayDeque<>();
+			ArrayList<String> lineList = new ArrayList<>();
 			// ! if the file is empty throw an exception here
-			for (int i = -1; reader.hasNextLine(); ++i) {
+			while (reader.hasNextLine()) {
 				
 				String data = reader.nextLine();
-				linesStack.push(data);
+				lineList.add(data);
 				System.out.println(data);
 			}
 			reader.close();
-			Parser parse = new Parser(linesStack);
+			Parser parse = new Parser(lineList);
 		}
 		catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());

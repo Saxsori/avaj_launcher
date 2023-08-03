@@ -1,69 +1,70 @@
 package ae.fortytwo.Parser;
 
+import java.util.ArrayList;
+import java.lang.Integer;
 import java.util.Deque;
 import java.util.ArrayDeque;
-import java.util.Iterator;
-import java.lang.Integer;
 
 import ae.fortytwo.Parser.POJO.Scenario;
 import ae.fortytwo.Parser.Validator;
+import ae.fortytwo.exceptions.InvalidScenarioException;
 
 public class Parser 
 {
-	private Deque<String> lines = new ArrayDeque<>();
+	private ArrayList<String> lines = new ArrayList<>();
 	private final char delimiter = ' ';
 	private Deque<Scenario> scenarios = new ArrayDeque<>();
-	private Validator validator = new Validator();
 
-    public Parser ( Deque<String> linesStack) {
+    public Parser ( ArrayList<String> linesStack ) {
         this.lines = linesStack;
         System.out.println("\n here from parser constructor");
-        Iterator<String> descendingIterator = this.lines.descendingIterator();
-        while (descendingIterator.hasNext()) {
-            String line = descendingIterator.next();
+        for (String line : this.lines)
             System.out.println(line);
-        }
-
 		this.start();
     }
 
-	private String parseSimulations(String line) {
-		System.out.println("Here where to parse the simulations");
+	private String parseSimulations( String line ) throws InvalidScenarioException {
+		System.out.println("\nHere where to parse the simulations");
 
 		String [] parts = line.split(String.valueOf(this.delimiter));
-		if (parts.length != 1) {
-			// ! throw an exception here
-			System.out.println("Error ! The simulations line doesn't contain only one number");
-			return null ;
-		}
+		if (parts.length != 1) 
+			throw new InvalidScenarioException("The Simulation number: Incorrect syntax, contains many strings");
 		return parts[0];
-		// try {
-		// 	if (Integer.parseInt(parts[0]) < 1) {
-		// 		// ! throw an exception here
-		// 		System.out.println("Error ! The simulations string should be positive number");
-		// 		return ;
-		// 	}
-		// }
-		// catch (Exception e) {
-		// 	System.out.println("Error ! The simulations string is not int" + e.getMessage());
-		// 	e.printStackTrace();
-		// }
 	}
 
+	public String [] parseAirCraft( String airCraft ) throws InvalidScenarioException {
+		String [] info = airCraft.split(String.valueOf(' '));
+		if (info.length != 5)
+			throw new InvalidScenarioException("The Aircraft Info: `" + airCraft + "` is either too many or too less, Follow this syntax 'TYPE NAME LONGITUDE LATITUDE HEIGHT'");
+		return info;
+	}
+	
 	private void start() {
-		System.out.println("Here where to start the parse");
+		System.out.println("\nHere where to start the parse");
 
-		// ! parse the first line
-		String simulations = this.parseSimulations(this.lines.removeLast());
-		// try {
-			int number = this.validator.validateSimulations(simulations);
-			System.out.println("The number of simulations is: " + number);
-		// }
+		try {
+			// todo : add scenario creation
+
+			// todo : add the simulations
+
+			// * parse the first line
+			String simulations = this.parseSimulations(this.lines.remove(0));
+			int number = Validator.validateSimulations(simulations);
+			System.out.println("\nThe number of simulations is: " + number);
+
+			// todo : push back the aircraft returns to scenario
+
+			// * parse the remains
+			for (String line : this.lines)
+				Validator.validateAirCraft(this.parseAirCraft(line));
+			
+			System.out.println("\n valid aircrafts !");
+
+			
+		}
+		catch (Exception e) {
+			System.err.println("\nValidator Throws an Exception !\n" + e.getMessage());
+		}
 
 	}
-
-
-    
-    
-
 }

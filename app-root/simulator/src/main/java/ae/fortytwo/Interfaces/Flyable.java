@@ -1,4 +1,4 @@
-package ae.fortytwo.Interfaces;
+package ae.fortytwo.interfaces;
 
 public class Flyable {
     
