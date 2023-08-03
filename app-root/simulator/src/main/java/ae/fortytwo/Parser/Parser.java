@@ -5,7 +5,7 @@ import java.lang.Integer;
 import java.util.Deque;
 import java.util.ArrayDeque;
 
-import ae.fortytwo.Parser.POJO.Scenario;
+import ae.fortytwo.Parser.Scenario;
 import ae.fortytwo.Parser.Validator;
 import ae.fortytwo.exceptions.InvalidScenarioException;
 
@@ -51,19 +51,19 @@ public class Parser
 			String simulations = this.parseSimulations(this.lines.remove(0));
 			int number = Validator.validateSimulations(simulations);
 			System.out.println("\nThe number of simulations is: " + number);
+			Scenario.getInstance().setSimulations(number);
 
 			// todo : push back the aircraft returns to scenario
 
 			// * parse the remains
 			for (String line : this.lines)
-				Validator.validateAirCraft(this.parseAirCraft(line));
+				Scenario.getInstance().addAircraft(Validator.validateAirCraft(this.parseAirCraft(line)));
 			
 			System.out.println("\n valid aircrafts !");
 
-			
 		}
 		catch (Exception e) {
-			System.err.println("\nValidator Throws an Exception !\n" + e.getMessage());
+			System.err.println("\nValidator Throws an Exception !\n" + e.getMessage() + e.getStackTrace());
 		}
 
 	}
