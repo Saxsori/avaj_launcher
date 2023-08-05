@@ -61,17 +61,12 @@ public class Validator
 	}
 
 	public static String [] validateAirCraft( String [] aircraft ) throws InvalidScenarioException {
-		try {
-			if (isValidType(aircraft[0]))
-				if (isValidName(aircraft[1]))
-					if (isValidCoordinate(aircraft[2], "Longitude"))
-						if (isValidCoordinate(aircraft[3], "Latitude"))
-							if (isValidCoordinate(aircraft[4], "Height"))
-								return aircraft;
-		}
-		catch (Exception e) {
-			throw e;
-		}
+		if (isValidType(aircraft[0]))
+			if (isValidName(aircraft[1]))
+				if (isValidCoordinate(aircraft[2], "Longitude"))
+					if (isValidCoordinate(aircraft[3], "Latitude"))
+						if (isValidCoordinate(aircraft[4], "Height"))
+							return aircraft;
 		return null;
 	}
 }

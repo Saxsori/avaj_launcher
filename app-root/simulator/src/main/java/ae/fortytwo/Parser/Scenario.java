@@ -3,11 +3,17 @@ package ae.fortytwo.Parser;
 import java.util.Deque;
 import java.util.ArrayDeque;
 
+import ae.fortytwo.exceptions.InvalidScenarioException;
+import ae.fortytwo.Aircraft.DTO.Info;
+import ae.fortytwo.Aircraft.Coordinates;
+
+
+// ? A Singleton POJO :)
 public class Scenario
 {
 	private static Scenario instance;
 	private int simulations;
-	private Deque<String []> aircrafts;
+	private Deque<Info> aircrafts;
 
 	private Scenario () {
 		this.simulations = 0;
@@ -18,7 +24,7 @@ public class Scenario
 		return this.simulations;
 	}
 
-	public Deque<String []> getAircrafts() {
+	public Deque<Info> getAircrafts() {
 		return this.aircrafts;
 	}
 
@@ -28,16 +34,31 @@ public class Scenario
 		return instance;
 	}
 
-	public void setSimulations(int simulations) {
-		this.simulations = simulations;
+	public void setSimulations(String simulations) throws InvalidScenarioException {
+		this.simulations = Validator.validateSimulations(simulations);
 	}
 
-	public void addAircraft(String [] aircraft) {
-		this.aircrafts.add(aircraft);
-	}
+	public void addAircraft(final String [] aircraft) throws InvalidScenarioException {
+		Validator.validateAirCraft(aircraft);
+		this.aircrafts.add(new Info() {
+            @Override
+            public String getType() {
+                return aircraft[0];
+            }
 
-	public void removeAircraft(String [] aircraft) {
-		this.aircrafts.remove(aircraft);
+            @Override
+            public String getName() {
+                return aircraft[1];
+            }
+
+            @Override
+            public Coordinates getCoordinates() {
+                return  new Coordinates(
+					Integer.parseInt(aircraft[2]), 
+					Integer.parseInt(aircraft[3]),
+					Integer.parseInt(aircraft[4]));
+            }
+        });
 	}
 
 	public void removeAircraft(int index) {
@@ -52,12 +73,12 @@ public class Scenario
 		this.aircrafts.clear();
 	}
 
-	@Override
-	public String toString() {
-		String scenario = "simulations: " + this.simulations + "\n";
-		scenario += "aircrafts: \n";
-		for (String [] aircraft : this.aircrafts)
-			scenario += String.join(" ", aircraft) + "\n";
-		return scenario;
-	}
+	// @Override
+	// public String toString() {
+	// 	String scenario = "simulations: " + this.simulations + "\n";
+	// 	scenario += "aircrafts: \n";
+	// 	for (String [] aircraft : this.aircrafts)
+	// 		scenario += String.join(" ", aircraft) + "\n";
+	// 	return scenario;
+	// }
 }

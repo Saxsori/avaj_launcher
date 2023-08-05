@@ -44,21 +44,13 @@ public class Parser
 		// System.out.println("\nHere where to start the parse");
 
 		try {
-			// todo : add scenario creation
-
-			// todo : add the simulations
-
 			// * parse the first line
 			String simulations = this.parseSimulations(this.lines.remove(0));
-			int number = Validator.validateSimulations(simulations);
-			// System.out.println("\nThe number of simulations is: " + number);
-			Scenario.getInstance().setSimulations(number);
-
-			// todo : push back the aircraft returns to scenario
+			Scenario.getInstance().setSimulations(simulations);
 
 			// * parse the remains
 			for (String line : this.lines)
-				Scenario.getInstance().addAircraft(Validator.validateAirCraft(this.parseAirCraft(line)));
+				Scenario.getInstance().addAircraft(this.parseAirCraft(line));
 			
 			System.out.println("\n Valid aircrafts !");
 			this.isValid = true;

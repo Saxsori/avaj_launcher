@@ -1,0 +1,20 @@
+->2
+H1 H snowing
+B1 B Fogging
+B2 B snowing
+J1 J snowing
+H2 H snowing
+H3 H Fogging
+B3 B Sunning
+J2 J Sunning
+H4 H Raining
+->1
+H1 H snowing
+B1 B Fogging
+B2 B snowing
+J1 J snowing
+H2 H snowing
+H3 H Fogging
+B3 B Sunning
+J2 J Sunning
+H4 H Raining

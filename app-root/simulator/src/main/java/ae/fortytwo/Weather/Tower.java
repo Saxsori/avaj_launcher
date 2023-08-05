@@ -3,7 +3,7 @@ package ae.fortytwo.Weather;
 import java.util.ArrayList;
 import java.util.List;
 
-import ae.fortytwo.interfaces.Flyable;
+import ae.fortytwo.Aircraft.Flyable;
 
 public class Tower {
 	private List<Flyable> observers = new ArrayList<Flyable>();
