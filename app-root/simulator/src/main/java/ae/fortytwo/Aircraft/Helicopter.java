@@ -27,6 +27,16 @@ public class Helicopter extends Aircraft{
         ));
 
 		super.updateConditions();
+	
+		super.coordinates.setLongitude(super.weatherTower.getWeather(super.coordinates).equals("SUN") ? 10 :
+		super.weatherTower.getWeather(super.coordinates).equals("RAIN") ? 5 :
+		super.weatherTower.getWeather(super.coordinates).equals("FOG") ? 1 :
+		0);
 
+		super.coordinates.setHeight(super.weatherTower.getWeather(super.coordinates).equals("SUN") ? 2 :
+		super.weatherTower.getWeather(super.coordinates).equals("SNOW") ? -12 : 0);
+
+		if (super.coordinates.getHeight() <= 0)
+			super.weatherTower.unregister(this);
 	}
 }

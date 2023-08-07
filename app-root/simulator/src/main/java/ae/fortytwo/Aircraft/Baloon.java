@@ -28,6 +28,16 @@ public class Baloon extends Aircraft {
 
 		super.updateConditions();
 
+		super.coordinates.setLongitude(super.weatherTower.getWeather(super.coordinates).equals("SUN") ? 2 : 0);
+
+		super.coordinates.setHeight(super.weatherTower.getWeather(super.coordinates).equals("SUN") ? 4 :
+		super.weatherTower.getWeather(super.coordinates).equals("RAIN") ? -5 :
+		super.weatherTower.getWeather(super.coordinates).equals("FOG") ? -3 :
+		super.weatherTower.getWeather(super.coordinates).equals("SNOW") ? -15 : 0);
+
+
+		if (super.coordinates.getHeight() <= 0)
+			super.weatherTower.unregister(this);
 	}
     
 }
