@@ -31,7 +31,6 @@ public class App
 			while (reader.hasNextLine()) {	
 				String data = reader.nextLine();
 				lineList.add(data);
-				// System.out.println(data);
 			}
 			reader.close();
 			
@@ -39,7 +38,6 @@ public class App
 			if (!parse.isValid)
 				throw new Exception("Exit Program: The Scenario is not valid");
 			
-			Simulator simulator = new Simulator();
 			
 			File outputFile = new File("simulation.txt");
 			
@@ -50,6 +48,7 @@ public class App
             // Redirect the System.out to the custom PrintStream
             System.setOut(printStream);
 
+			Simulator simulator = new Simulator();
 			simulator.launch();
 
             printStream.close();

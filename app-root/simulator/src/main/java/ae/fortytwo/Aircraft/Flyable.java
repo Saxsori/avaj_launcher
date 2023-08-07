@@ -11,4 +11,10 @@ public abstract class Flyable {
 		weatherTower = p_tower;
 	}
 
+	public abstract long getId ();
+
+	public abstract String getName();
+
+	public abstract String getType ();
+
 }

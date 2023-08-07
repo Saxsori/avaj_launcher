@@ -9,10 +9,6 @@ import ae.fortytwo.Aircraft.Flyable;
 import ae.fortytwo.Aircraft.AircraftFactory;
 import ae.fortytwo.Aircraft.DTO.Info;
 
-
-
-
-
 public class Simulator {
     private WeatherTower weatherTower;
     // private ArrayList <Flyable> Aircrafts;

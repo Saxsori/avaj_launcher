@@ -1,14 +1,16 @@
 package ae.fortytwo.Aircraft;
 
-import ae.fortytwo.Aircraft.Coordinates;
-import ae.fortytwo.Aircraft.Flyable;
 import java.util.HashMap;
 import java.util.Map;
+
+import ae.fortytwo.Aircraft.Coordinates;
+import ae.fortytwo.Aircraft.Flyable;
 
 public class Aircraft extends Flyable{
     protected long id;
 	protected String name;
 	protected Coordinates coordinates;
+	private String type;
 	private Map<String, String> msg;
 
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinate) {
@@ -27,16 +29,16 @@ public class Aircraft extends Flyable{
 	public void updateConditions () {
 		switch (super.weatherTower.getWeather(this.coordinates)) {
 			case "SNOW":
-				System.out.println(this.name + " " + this.msg.get("SNOW"));
+				System.out.println(this.type + "#" + this.name + "(" + this.id + "): "  + this.msg.get("SNOW"));
 				break ;
 			case "FOG":
-				System.out.println(this.name + " " + this.msg.get("FOG"));
+				System.out.println(this.type + "#" + this.name + "(" + this.id + "): "  + this.msg.get("FOG"));
 				break ;
 			case "RAIN":
-				System.out.println(this.name + " " + this.msg.get("RAIN"));
+				System.out.println(this.type + "#" + this.name + "(" + this.id + "): "  + this.msg.get("RAIN"));
 				break ;
 			case "SUN":
-				System.out.println(this.name + " " + this.msg.get("SUN"));
+				System.out.println(this.type + "#" + this.name + "(" + this.id + "): "  + this.msg.get("SUN"));
 				break ;
 			default :
 				System.out.println(this.name + " voooooo !");
@@ -44,16 +46,27 @@ public class Aircraft extends Flyable{
 		}
 	}
 
-	protected long getId () {
+	@Override
+	public long getId () {
 		return this.id;
 	}
 
-	protected String getName () {
+	@Override
+	public String getName () {
 		return this.name;
+	}
+	
+	@Override
+	public String getType () {
+		return this.type;
 	}
 
 	protected Coordinates getCoordinates () {
 		return this.coordinates;
+	}
+	
+	protected void setType (String type) {
+		this.type = type;
 	}
 
 	protected void setName (String name) {

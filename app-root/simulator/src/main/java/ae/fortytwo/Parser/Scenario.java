@@ -72,13 +72,4 @@ public class Scenario
 	public void clearAircrafts() {
 		this.aircrafts.clear();
 	}
-
-	// @Override
-	// public String toString() {
-	// 	String scenario = "simulations: " + this.simulations + "\n";
-	// 	scenario += "aircrafts: \n";
-	// 	for (String [] aircraft : this.aircrafts)
-	// 		scenario += String.join(" ", aircraft) + "\n";
-	// 	return scenario;
-	// }
 }

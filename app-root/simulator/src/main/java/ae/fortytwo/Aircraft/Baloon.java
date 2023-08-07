@@ -1,9 +1,10 @@
 package ae.fortytwo.Aircraft;
 
-import ae.fortytwo.Aircraft.Aircraft;
-import ae.fortytwo.Aircraft.Coordinates;
 import java.util.HashMap;
 import java.util.Map;
+
+import ae.fortytwo.Aircraft.Aircraft;
+import ae.fortytwo.Aircraft.Coordinates;
 
 /*
 ◦ SUN - Longitude increases with 2, Height increases with 4
@@ -15,15 +16,16 @@ public class Baloon extends Aircraft {
 
     public Baloon(long p_id, String p_name, Coordinates p_coordinates) {
 		super(p_id, p_name, p_coordinates);
+		super.setType("Baloon");
 	}
 
     @Override
 	public void updateConditions () {
 		super.setMsg(Map.of(
-            "SNOW", "B snowing",
-            "SUN", "B Sunning",
-            "FOG", "B Fogging",
-            "RAIN", "B Raining"
+            "SNOW", "Ice age alert! I'm in the sky, but it's colder than Aokiji's heart out here!",
+            "SUN", "My crew's melting like ice cream! Call Kuzan to chill this place!",
+            "FOG", "Is that you, Caesar Clown? The weather's playing tricks again !",
+            "RAIN", " I feel like I'm singing 'Bink's Sake' in this downpour!"
         ));
 
 		super.updateConditions();

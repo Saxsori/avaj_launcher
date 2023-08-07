@@ -18,15 +18,10 @@ public class Parser
 
     public Parser ( ArrayList<String> linesStack ) {
         this.lines = linesStack;
-        // System.out.println("\n here from parser constructor");
-        // for (String line : this.lines)
-        //     System.out.println(line);
 		this.start();
     }
 
 	private String parseSimulations( String line ) throws InvalidScenarioException {
-		// System.out.println("\nHere where to parse the simulations");
-
 		String [] parts = line.split(String.valueOf(this.delimiter));
 		if (parts.length != 1) 
 			throw new InvalidScenarioException("The Simulation number: Incorrect syntax, contains many strings");
@@ -41,8 +36,6 @@ public class Parser
 	}
 	
 	private void start() {
-		// System.out.println("\nHere where to start the parse");
-
 		try {
 			// * parse the first line
 			String simulations = this.parseSimulations(this.lines.remove(0));
