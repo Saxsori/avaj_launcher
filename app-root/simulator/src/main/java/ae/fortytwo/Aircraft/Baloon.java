@@ -25,7 +25,7 @@ public class Baloon extends Aircraft {
             "SNOW", "Ice age alert! I'm in the sky, but it's colder than Aokiji's heart out here!",
             "SUN", "My crew's melting like ice cream! Call Kuzan to chill this place!",
             "FOG", "Is that you, Caesar Clown? The weather's playing tricks again !",
-            "RAIN", " I feel like I'm singing 'Bink's Sake' in this downpour!"
+            "RAIN", "I feel like I'm singing 'Bink's Sake' in this downpour!"
         ));
 
 		super.updateConditions();

@@ -22,8 +22,8 @@ public class JetPlane extends Aircraft {
 	public void updateConditions () {
 		super.setMsg(Map.of(
             "SNOW", "Can someone lend me a snowboard for to land?",
-            "SUN", "Like the Sniper Island king up here, shooting down sunbeams",
-            "FOG", " SOS, I need a fog-dispersing fan!",
+            "SUN", "Like the Sniper Island king up here, shooting down sunbeams.",
+            "FOG", "SOS, I need a fog-dispersing fan!",
             "RAIN", "Rain ain't gonna stop me from being SUPER, even if I have to use cola-powered windshield wipers!"
         ));
 

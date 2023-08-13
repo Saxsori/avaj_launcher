@@ -22,7 +22,7 @@ public class Helicopter extends Aircraft{
     @Override
 	public void updateConditions () {
 		super.setMsg(Map.of(
-            "SNOW", "Brrr! Chopper, where's your Heavy Point? We  need some fur up here !",
+            "SNOW", "Brrr! Chopper, where's your Heavy Point? We need some fur up here !",
             "SUN", "Navigating this heat is tougher than calculating Grand Line currents!",
             "FOG", "Lost in history just like Robin in a library - I can't find the way out of this fog!",
             "RAIN", "Says we're in Nami's forecast zone! Can we get a discount on the rain rate?"

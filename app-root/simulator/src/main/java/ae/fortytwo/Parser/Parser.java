@@ -8,6 +8,8 @@ import java.util.ArrayDeque;
 import ae.fortytwo.Parser.Scenario;
 import ae.fortytwo.Parser.Validator;
 import ae.fortytwo.exceptions.InvalidScenarioException;
+import ae.fortytwo.exceptions.ParsingErrorException;
+
 
 public class Parser 
 {
@@ -21,17 +23,17 @@ public class Parser
 		this.start();
     }
 
-	private String parseSimulations( String line ) throws InvalidScenarioException {
+	private String parseSimulations( String line ) throws ParsingErrorException {
 		String [] parts = line.split(String.valueOf(this.delimiter));
 		if (parts.length != 1) 
-			throw new InvalidScenarioException("The Simulation number: Incorrect syntax, contains many strings");
+			throw new ParsingErrorException("The Simulation number: Incorrect syntax, contains many strings");
 		return parts[0];
 	}
 
-	public String [] parseAirCraft( String airCraft ) throws InvalidScenarioException {
+	public String [] parseAirCraft( String airCraft ) throws ParsingErrorException {
 		String [] info = airCraft.split(String.valueOf(' '));
 		if (info.length != 5)
-			throw new InvalidScenarioException("The Aircraft Info: `" + airCraft + "` is either too many or too less, Follow this syntax 'TYPE NAME LONGITUDE LATITUDE HEIGHT'");
+			throw new ParsingErrorException("The Aircraft Info: `" + airCraft + "` is either too many or too less, Follow this syntax 'TYPE NAME LONGITUDE LATITUDE HEIGHT'");
 		return info;
 	}
 	
@@ -49,7 +51,7 @@ public class Parser
 			this.isValid = true;
 		}
 		catch (Exception e) {
-			System.err.println("\nValidator Throws an Exception !\n" + e.getMessage());
+			System.err.println("\nParser: Validator Throws an Exception !\n" + e.getMessage());
 		}
 
 	}

@@ -9,6 +9,7 @@ import java.io.PrintStream;
 
 import ae.fortytwo.Parser.Parser;
 import ae.fortytwo.Simulator;
+import ae.fortytwo.exceptions.ParsingErrorException;
 
 public class App 
 {
@@ -17,7 +18,7 @@ public class App
     {
 		try {
 			if (args.length != 1)
-				throw new Exception("Error: There are more than one file or no file provided");
+				throw new ParsingErrorException("Arguments Error: There are more than one file or no file provided");
 
 			File file = new File(args[0]);
 
@@ -26,7 +27,7 @@ public class App
 			ArrayList<String> lineList = new ArrayList<>();
 			
 			if (!reader.hasNextLine())
-				throw new Exception("File Error: File is empty");
+				throw new ParsingErrorException("File Error: File is empty");
 			
 			while (reader.hasNextLine()) {	
 				String data = reader.nextLine();
@@ -36,10 +37,10 @@ public class App
 			
 			Parser parse = new Parser(lineList);
 			if (!parse.isValid)
-				throw new Exception("Exit Program: The Scenario is not valid");
+				throw new ParsingErrorException("Validition failed: The Scenario is not valid");
 			
 			
-			File outputFile = new File("simulation.txt");
+			File outputFile = new File("src/output/simulation.txt");
 			
 			// Create a FileOutputStream for the output file
             FileOutputStream fileOutputStream = new FileOutputStream(outputFile);

@@ -38,10 +38,12 @@ public class AppTest
     {
         // assertTrue( true );
 
+		
+
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
-        String[] args = {"/home/T0290314/MyProjects/sandbox/avaj_launcher/app-root/simulator/scenario.txt"};
+        String[] args = {"src/main/resources/scenario.txt"};
         App.main(args);
 
         System.setOut(System.out);
