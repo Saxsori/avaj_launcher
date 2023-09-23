@@ -31,7 +31,7 @@ public class App
 			
 			while (reader.hasNextLine()) {	
 				String data = reader.nextLine();
-				if (lineList.length() < Integer.MAX_VALUE - 1)
+				if (lineList.size() < Integer.MAX_VALUE - 1)
 					lineList.add(data);
 			}
 			reader.close();
