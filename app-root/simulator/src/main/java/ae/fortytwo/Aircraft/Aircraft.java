@@ -4,13 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ae.fortytwo.Aircraft.Coordinates;
-import ae.fortytwo.Aircraft.Flyable;
+import ae.fortytwo.Aircraft.Interface.Flyable;
 
 public class Aircraft extends Flyable{
     protected long id;
 	protected String name;
-	protected Coordinates coordinates;
 	private String type;
+	/*
+	 Composition is a stronger form of aggregation where one class (the container) 
+	 owns the other class (the component), and the component cannot exist without 
+	 the container.
+	*/
+	protected Coordinates coordinates;
 	private Map<String, String> msg;
 
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinate) {

@@ -34,6 +34,8 @@ public class Coordinates {
 
     public void setHeight (int height) {
         this.height += height;
+		if (this.height > 100)
+			this.height = 100;
     }
 
 	@Override

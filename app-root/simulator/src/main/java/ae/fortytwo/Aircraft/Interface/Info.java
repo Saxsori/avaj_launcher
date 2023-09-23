@@ -1,4 +1,4 @@
-package ae.fortytwo.Aircraft.DTO;
+package ae.fortytwo.Aircraft.Interface;
 
 import ae.fortytwo.Aircraft.Coordinates;
 

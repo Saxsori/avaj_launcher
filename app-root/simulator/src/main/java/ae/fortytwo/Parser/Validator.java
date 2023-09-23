@@ -3,6 +3,7 @@ package ae.fortytwo.Parser;
 import java.lang.String;
 
 import ae.fortytwo.exceptions.InvalidScenarioException;
+import java.lang.NumberFormatException;
 
 // ? utility class to validate the file input
 public class Validator
@@ -35,6 +36,9 @@ public class Validator
 			// 	return true;
 			// if (type.equals("Longitude") && coord > 0 && coord < 360 || type.equals("Latitude") && coord > 0 && coord < 180)
 			// 	retrun true;
+			if (coord >= Integer.MAX_VALUE)
+				throw new InvalidScenarioException(msgAirCraftInfo + "Invalid Range " + input + ": The range should be valid Integer Value'");
+
 			if (coord > -1)
 				return true;
 		}
@@ -51,10 +55,12 @@ public class Validator
 		int simulationsInt = -1;
 		try {
 			simulationsInt = Integer.parseInt(simulations);
+			if (simulationsInt > 100)
+				throw new InvalidScenarioException(msgAirCraftInfo + "Invalid Simulation number " + simulations + ": The Number should be Less than 100'");
 			if (simulationsInt < 1)
 			 	throw new InvalidScenarioException(msgSimulations + "Positive Integer is Required");
 		}
-		catch (Exception e) {
+		catch (NumberFormatException e) {
 			throw new InvalidScenarioException(msgSimulations + "Integer is required, " + e.getMessage());
 		}
 		return simulationsInt;

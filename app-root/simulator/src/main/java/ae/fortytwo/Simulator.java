@@ -5,17 +5,15 @@ import java.util.ArrayList;
 import ae.fortytwo.Weather.WeatherTower;
 import ae.fortytwo.Parser.Scenario;
 import ae.fortytwo.Aircraft.Coordinates;
-import ae.fortytwo.Aircraft.Flyable;
+import ae.fortytwo.Aircraft.Interface.Flyable;
 import ae.fortytwo.Aircraft.AircraftFactory;
-import ae.fortytwo.Aircraft.DTO.Info;
+import ae.fortytwo.Aircraft.Interface.Info;
 
 public class Simulator {
     private WeatherTower weatherTower;
-    // private ArrayList <Flyable> Aircrafts;
     
     public Simulator () {
         weatherTower = new WeatherTower();
-        // Aircrafts = new ArrayList<>();
         this.setup();
     }
 
@@ -23,7 +21,6 @@ public class Simulator {
         for (Info info : Scenario.getInstance().getAircrafts())
         {
             Flyable newAircraft = AircraftFactory.newAircraft(info.getType(), info.getName(), info.getCoordinates());
-            // this.Aircrafts.add(newAircraft);
             newAircraft.registerTower(weatherTower);
             weatherTower.register(newAircraft);
         }
@@ -32,7 +29,7 @@ public class Simulator {
     public void launch () {
         int times = Scenario.getInstance().getSimulations() + 1;
         while (--times > 0) {
-            System.out.println("->" + times);
+            // System.out.println("->" + times);
             weatherTower.changeWeather();
         }
     }

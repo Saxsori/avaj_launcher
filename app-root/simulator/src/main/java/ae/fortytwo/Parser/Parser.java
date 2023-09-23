@@ -31,7 +31,11 @@ public class Parser
 	}
 
 	public String [] parseAirCraft( String airCraft ) throws ParsingErrorException {
-		String [] info = airCraft.split(String.valueOf(' '));
+		// String [] info = airCraft.split(String.valueOf(' '));
+		airCraft = airCraft.trim();
+		airCraft = airCraft.replaceAll("\\s+", " ");
+		String [] info = airCraft.split(" ");
+
 		if (info.length != 5)
 			throw new ParsingErrorException("The Aircraft Info: `" + airCraft + "` is either too many or too less, Follow this syntax 'TYPE NAME LONGITUDE LATITUDE HEIGHT'");
 		return info;

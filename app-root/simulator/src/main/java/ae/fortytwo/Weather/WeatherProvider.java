@@ -6,8 +6,8 @@ import ae.fortytwo.Aircraft.Coordinates;
 
 // ? Singleton pattern ? //
 public class WeatherProvider {
+	private static WeatherProvider instance = null;
     private String[] weather = { "RAIN", "FOG", "SUN", "SNOW" };
-	private static WeatherProvider instance;
 
 	private WeatherProvider() {}
 

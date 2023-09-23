@@ -4,14 +4,14 @@ import java.util.Deque;
 import java.util.ArrayDeque;
 
 import ae.fortytwo.exceptions.InvalidScenarioException;
-import ae.fortytwo.Aircraft.DTO.Info;
+import ae.fortytwo.Aircraft.Interface.Info;
 import ae.fortytwo.Aircraft.Coordinates;
 
 
 // ? A Singleton POJO :)
 public class Scenario
 {
-	private static Scenario instance;
+	private static Scenario instance = null;
 	private int simulations;
 	private Deque<Info> aircrafts;
 
@@ -38,6 +38,10 @@ public class Scenario
 		this.simulations = Validator.validateSimulations(simulations);
 	}
 
+	/*
+	 *Anynoumous class implementation
+	 used to create an object of an Interface or abstract class on the fly. 
+	 */
 	public void addAircraft(final String [] aircraft) throws InvalidScenarioException {
 		Validator.validateAirCraft(aircraft);
 		this.aircrafts.add(new Info() {
