@@ -13,7 +13,7 @@ The aim is to develop a flexible simulator, that anticipates future needs. The f
 
 ## General instructions
 - Allowed to use language features up to the latest Java LTS version.
-- Allowed to use any external libraries, build tools, or code generators.
+- Not allowed to use any external libraries, build tools, or code generators.
 - Do not use the default package.
 - Create relevant packages following the Java package naming conventions.
 - Do not commit .class files.
