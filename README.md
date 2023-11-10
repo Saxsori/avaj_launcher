@@ -8,7 +8,7 @@ To join the team, expertise in interpreting UML class diagrams, knowledge of Jav
 
 The aim is to develop a flexible simulator, that anticipates future needs. The focus is on a clean, easily understandable design, reflecting the high standards of the top software shop.
 
-![image](https://github.com/Saxsori/avaj_launcher/assets/92129820/6ad2f8ec-0ada-4c20-ae7c-e2ea75c43a07)
+![image](https://github.com/Saxsori/avaj_launcher/blob/main/tools/avaj_uml.png)
 
 
 ## General instructions
