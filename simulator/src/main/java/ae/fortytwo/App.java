@@ -41,7 +41,7 @@ public class App
 				throw new ParsingErrorException("Validition failed: The Scenario is not valid");
 			
 			
-			File outputFile = new File("src/output/simulation.txt");
+			File outputFile = new File("./simulation.txt");
 			
 			// Create a FileOutputStream for the output file
             FileOutputStream fileOutputStream = new FileOutputStream(outputFile);

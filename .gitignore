@@ -1,4 +1,7 @@
-app-root/simulator/target/*
-app-root/simulator/target/
 .DS_Store
 .vscode/
+*.class
+*.jar
+manifest.txt
+sources.txt
+build/

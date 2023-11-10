@@ -19,7 +19,7 @@ if [ $? -eq 0 ]; then
     
 	    echo "JAR file '$JAR_FILE' created successfully."
     
-	    java -jar $JAR_FILE
+	    java -jar $JAR_FILE ./src/main/resources/scenario.txt
 	else
         echo "Failed to create JAR file."
     fi
