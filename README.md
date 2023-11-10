@@ -26,7 +26,7 @@ $javac @sources.txt
 ```
 
 > [!IMPORTANT]
-> I have created two versions of the compiling program, for learning purposes. I used Maven "a building tool and a dependency manager" in this branch. In the [submission version](https://github.com/Saxsori/avaj_launcher/tree/submit_version), I created a [script](https://github.com/Saxsori/avaj_launcher/blob/submit_version/simulator/launch.sh) that aligns with the project's instructions, achieving the same outcomes.
+> I have created two versions with different ways of compiling the program, for learning purposes. I used Maven "a building tool and a dependency manager" in this branch. In the [submission version](https://github.com/Saxsori/avaj_launcher/tree/submit_version), I created a [script](https://github.com/Saxsori/avaj_launcher/blob/submit_version/simulator/launch.sh) that aligns with the project's instructions, achieving the same outcomes.
 
 ## Program behavior
 - Accept a single command-line argument representing a scenario file name.
@@ -95,3 +95,35 @@ The input file needs to be validated. Any abnormal behavior due to invalid input
 
 ## Bonus part
 - Create custom exceptions for treating abnormal behavior.
+
+## Launch the Program
+> [!NOTE]
+> I have used Docker Container to install the Java Development Kit (OpenJDK11) that I need to compile the Program.
+
+### Master Version
+
+- First start the container, then compile and run the program using the script.
+``` ruby
+make all
+sh launch.sh
+```
+
+- To check the output file, u can find it in this path
+```
+cat ./src/output/simulation.txt
+```
+### Submission version
+
+- First start the container, then compile and run the program using the script.
+``` ruby
+make all
+sh launch.sh
+java -jar simulation.jar 
+```
+
+- To check the output file, u can find it in this path
+```
+cat ./simulation.txt
+```
+
+
