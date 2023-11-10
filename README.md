@@ -118,7 +118,6 @@ cat ./src/output/simulation.txt
 ``` ruby
 make all
 sh launch.sh
-java -jar simulation.jar 
 ```
 
 - To check the output file, u can find it in this path
